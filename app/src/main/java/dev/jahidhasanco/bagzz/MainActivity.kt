@@ -1,8 +1,10 @@
 package dev.jahidhasanco.bagzz
 
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
+import android.view.View
 import android.widget.FrameLayout
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import dev.jahidhasanco.bagzz.ui.fragment.HomeFragment
@@ -15,6 +17,10 @@ class MainActivity : AppCompatActivity() , BottomNavigationView.OnNavigationItem
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+        }
 
         fragmentContainer_activityMain = findViewById(R.id.fragmentContainer_activityMain)
         bottomNavigationView = findViewById(R.id.bottomNav)
